@@ -130,3 +130,7 @@ A word of caution: calculating subset sums has an exponential complexity the hig
 The initial mechanism was inspired by this answer on StackOverflow:
 
 http://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum/#answer-43351998
+
+There is also another interesting package that goes further than this:
+
+https://github.com/pipan/subsetsum-php
