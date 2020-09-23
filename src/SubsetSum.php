@@ -70,7 +70,7 @@ class SubsetSum
     
    /**
     * The mode with which to round decimals to the target precision.
-    * @var string
+    * @var int
     */
     private $roundMode = PHP_ROUND_HALF_UP;
     
@@ -138,10 +138,10 @@ class SubsetSum
    /**
     * Sets the precision to integers.
     * 
-    * @param string $roundMode
+    * @param int $roundMode
     * @return SubsetSum
     */
-    public function makeInteger($roundMode=PHP_ROUND_HALF_UP) : SubsetSum
+    public function makeInteger(int $roundMode=PHP_ROUND_HALF_UP) : SubsetSum
     {
         return $this->setPrecision(0, $roundMode);
     }
@@ -247,8 +247,8 @@ class SubsetSum
    /**
     * Rounds an array of numbers to the target precision.
     * 
-    * @param array $numbers
-    * @return array
+    * @param array<int,float> $numbers
+    * @return array<int,float>
     */
     private function convertArray(array $numbers) : array
     {
@@ -276,7 +276,7 @@ class SubsetSum
         
         foreach($stack as $number)
         {
-            if($number === 0)
+            if($number == 0)
             {
                 continue;
             }
@@ -323,8 +323,8 @@ class SubsetSum
     * Recursively analyzes the specified numbers to see if their
     * sum equals the target number.
     * 
-    * @param array $numbers Target stack of numbers to reach.
-    * @param array $currentStack Current combination we're trying.
+    * @param array<int,float> $numbers Target stack of numbers to reach.
+    * @param array<int,float> $currentStack Current combination we're trying.
     */
     private function searchRecursive(array $numbers, array $currentStack=array()) : void
     {
