@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Mistralys/subsetsum.svg?branch=master)](https://travis-ci.com/Mistralys/subsetsum)
+
 # PHP SubsetSum implementation
 
 Given a target number and a list of numbers, determines which number combinations equal the target number.
