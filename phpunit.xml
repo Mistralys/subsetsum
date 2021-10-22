@@ -12,8 +12,5 @@
         <testsuite name="Core functionality tests">
             <directory suffix=".php">./tests/testsuites/Core</directory>
         </testsuite>
-        <testsuite name="Rendering tests">
-            <directory suffix=".php">./tests/testsuites/Renderers</directory>
-        </testsuite>
     </testsuites>
 </phpunit>
