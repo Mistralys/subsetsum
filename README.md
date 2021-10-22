@@ -6,6 +6,10 @@ Given a target number and a list of numbers, determines which number combination
 
 For example: With `25` as the target number, and `10`, `5`, `15` as the numbers list, this will determine that `25 = 10 + 15`.
 
+## Requirements
+
+- PHP >= 7.1
+
 ## Installation
 
 Require the package via composer on the command line:
