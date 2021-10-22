@@ -175,7 +175,7 @@ class SubsetSum
     * 
     * @return array<int,float>|NULL The match, or null if there were no matches.
     */
-    public function getShortestMatch() : ?array
+    public function getShortestMatch()
     {
         $this->calculate();
         
@@ -195,7 +195,7 @@ class SubsetSum
     * 
     * @return array<int,float>|NULL The match, or null if there were no matches.
     */
-    public function getLongestMatch() : ?array
+    public function getLongestMatch()
     {
         $this->calculate();
         
