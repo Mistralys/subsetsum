@@ -7,3 +7,4 @@ docs/config/cache
 # composer.lock
 docs/config/resultCache.php
 docs/phpstan/output.txt
+.phpunit.result.cache
