@@ -78,7 +78,7 @@ class SubsetSum
     * @var boolean
     */
     private $calculated = false;
-    
+
    /**
     * @param float $targetSum
     * @param array<int,float> $numbersStack
@@ -99,18 +99,21 @@ class SubsetSum
     {
         return (new SubsetSum($targetSum, $numbersStack));
     }
-    
-   /**
-    * Sets the amount of decimals to use in the calculations. Numbers
-    * will be rounded to the specified amount of decimals, using the
-    * rounding mode.
-    * 
-    * @param int $precision The amount of decimals.
-    * @param int $mode The target rounding mode.
-    * @return SubsetSum
-    * 
-    * @link http://www.php.net/manual/en/math.constants.php
-    */
+
+    /**
+     * Sets the amount of decimals to use in the calculations. Numbers
+     * will be rounded to the specified amount of decimals, using the
+     * rounding mode.
+     *
+     * @param int $precision The amount of decimals.
+     * @param int $mode The target rounding mode.
+     * @return SubsetSum
+     *
+     * @throws SubsetSum_Exception
+     * @see SubsetSum::ERROR_NEGATIVE_PRECISION
+     *
+     * @link http://www.php.net/manual/en/math.constants.php
+     */
     public function setPrecision(int $precision, int $mode=PHP_ROUND_HALF_UP) : SubsetSum
     {
         if($precision < 0)
@@ -134,13 +137,16 @@ class SubsetSum
     {
         return $this->convert($this->targetSum);
     }
-    
-   /**
-    * Sets the precision to integers.
-    * 
-    * @param int $roundMode
-    * @return SubsetSum
-    */
+
+    /**
+     * Sets the precision to integers.
+     *
+     * @param int $roundMode
+     * @return SubsetSum
+     *
+     * @throws SubsetSum_Exception
+     * @see SubsetSum::ERROR_NEGATIVE_PRECISION
+     */
     public function makeInteger(int $roundMode=PHP_ROUND_HALF_UP) : SubsetSum
     {
         return $this->setPrecision(0, $roundMode);
@@ -332,7 +338,7 @@ class SubsetSum
         $search = $this->getSum();
         
         // we have found a match!
-        if($s === $search)
+        if(bccomp((string) $s, (string) $search, $this->precision) === 0)
         {
             sort($currentStack); // ensure the numbers are always sorted
             

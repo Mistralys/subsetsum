@@ -158,4 +158,21 @@ final class Functions_SubsetSumTest extends TestCase
             $this->assertSame(SubsetSum::ERROR_NEGATIVE_PRECISION, $e->getCode());
         }
     }
+
+    /**
+     * Test for floating point precision issues when comparing
+     * float values with `===`. Now replaced with `bccomp`
+     * function using the configured precision.
+     *
+     * @link https://www.php.net/manual/fr/function.bccomp.php
+     * @link https://github.com/Mistralys/subsetsum/issues/2
+     */
+    public function test_githubIssue_2() : void
+    {
+        $obj = SubsetSum::create(44.6, array(22.4, 16.2, 10, 6));
+        $obj->setPrecision(1);
+
+        $this->assertNotEmpty($obj->getSum());
+        $this->assertSame(array(6.0, 16.2, 22.4), $obj->getShortestMatch());
+    }
 }
