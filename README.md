@@ -9,6 +9,7 @@ For example: With `25` as the target number, and `10`, `5`, `15` as the numbers 
 ## Requirements
 
 - PHP >= 7.1
+- BCMath extension
 
 ## Installation
 
